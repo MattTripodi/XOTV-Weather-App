@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="XHH-Gd-Dkr">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--XOTV -->
+        <scene sceneID="Z3e-lX-IXj">
+            <objects>
+                <viewController id="XHH-Gd-Dkr" customClass="MapViewController" customModule="XOTV_Weather" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="zaa-4n-ZJC">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Blue-iPhone-Backgrounds" translatesAutoresizingMaskIntoConstraints="NO" id="Bu3-7H-0pd">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                            </imageView>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="ewa-ZJ-KR4">
+                                <rect key="frame" x="0.0" y="80" width="375" height="587"/>
+                                <gestureRecognizers/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="zMg-Gr-3vp" appends="YES" id="JwX-I0-aBn"/>
+                                </connections>
+                            </mapView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="749" image="xotv_logo" translatesAutoresizingMaskIntoConstraints="NO" id="Z3X-XN-tuw">
+                                <rect key="frame" x="84" y="20" width="207" height="55"/>
+                            </imageView>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="Z3X-XN-tuw" firstAttribute="top" secondItem="uv6-pk-PpL" secondAttribute="top" id="5Ft-fg-6OI"/>
+                            <constraint firstItem="ewa-ZJ-KR4" firstAttribute="trailing" secondItem="uv6-pk-PpL" secondAttribute="trailing" id="5p2-Ce-KPx"/>
+                            <constraint firstItem="Z3X-XN-tuw" firstAttribute="top" secondItem="uv6-pk-PpL" secondAttribute="top" id="7ra-Us-tjD"/>
+                            <constraint firstItem="Bu3-7H-0pd" firstAttribute="top" secondItem="zaa-4n-ZJC" secondAttribute="top" id="AKG-Pq-Ar6"/>
+                            <constraint firstItem="Z3X-XN-tuw" firstAttribute="leading" secondItem="uv6-pk-PpL" secondAttribute="leading" constant="84" id="Fcv-hp-QeC"/>
+                            <constraint firstItem="ewa-ZJ-KR4" firstAttribute="leading" secondItem="uv6-pk-PpL" secondAttribute="leading" id="IZB-Mg-XaA"/>
+                            <constraint firstItem="uv6-pk-PpL" firstAttribute="trailing" secondItem="Bu3-7H-0pd" secondAttribute="trailing" id="NuE-07-ocW"/>
+                            <constraint firstItem="Bu3-7H-0pd" firstAttribute="leading" secondItem="uv6-pk-PpL" secondAttribute="leading" id="aqH-O8-Qpj"/>
+                            <constraint firstAttribute="bottom" secondItem="Bu3-7H-0pd" secondAttribute="bottom" id="fCr-sI-nIL"/>
+                            <constraint firstItem="ewa-ZJ-KR4" firstAttribute="top" secondItem="Z3X-XN-tuw" secondAttribute="bottom" constant="5" id="oQi-77-7Dv"/>
+                            <constraint firstItem="ewa-ZJ-KR4" firstAttribute="bottom" secondItem="zaa-4n-ZJC" secondAttribute="bottom" id="rqn-6u-yVl"/>
+                            <constraint firstItem="uv6-pk-PpL" firstAttribute="trailing" secondItem="Z3X-XN-tuw" secondAttribute="trailing" constant="84" id="st4-rs-uGF"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="uv6-pk-PpL"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="XOTV " id="W4J-7E-KVA"/>
+                    <connections>
+                        <outlet property="mapView" destination="ewa-ZJ-KR4" id="dwF-G1-1LF"/>
+                        <segue destination="BYZ-38-t0r" kind="show" identifier="toWeatherVC" id="mQR-er-Atv"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="kZ1-jW-R4A" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <pongPressGestureRecognizer allowableMovement="10" minimumPressDuration="0.5" id="zMg-Gr-3vp">
+                    <connections>
+                        <action selector="revealLocationDetailsWithLongPressOnMap:" destination="XHH-Gd-Dkr" id="q35-3I-Elo"/>
+                    </connections>
+                </pongPressGestureRecognizer>
+            </objects>
+            <point key="canvasLocation" x="581.60000000000002" y="136.28185907046478"/>
+        </scene>
+        <!--Weather View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="WeatherViewController" customModule="XOTV_Weather" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Blue-iPhone-Backgrounds" translatesAutoresizingMaskIntoConstraints="NO" id="F9l-na-kcV">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                            </imageView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="E0r-Iz-ccy">
+                                <rect key="frame" x="0.0" y="106.5" width="375" height="454"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="vu5-KB-FEb">
+                                        <rect key="frame" x="16" y="129" width="343" height="229"/>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="21°" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ROY-tz-pXB">
+                                        <rect key="frame" x="245" y="0.0" width="114" height="127"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="127" id="BMR-yQ-bhp"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="75"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Loading..." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Q9N-bh-ytl">
+                                        <rect key="frame" x="16" y="360" width="343" height="94"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="94" id="ybN-iq-IyJ"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="30"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="ROY-tz-pXB" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="E0r-Iz-ccy" secondAttribute="leading" constant="20" symbolic="YES" id="5Kc-kG-gQI"/>
+                                    <constraint firstAttribute="height" constant="454" id="6ei-Yn-zZh"/>
+                                    <constraint firstAttribute="trailing" secondItem="Q9N-bh-ytl" secondAttribute="trailing" constant="16" id="8lX-bv-tdC"/>
+                                    <constraint firstItem="Q9N-bh-ytl" firstAttribute="leading" secondItem="E0r-Iz-ccy" secondAttribute="leading" constant="16" id="Gqs-yG-cok"/>
+                                    <constraint firstAttribute="trailing" secondItem="vu5-KB-FEb" secondAttribute="trailing" constant="16" id="I3c-Pj-JtI"/>
+                                    <constraint firstAttribute="trailing" secondItem="ROY-tz-pXB" secondAttribute="trailing" constant="16" id="aPU-yz-OVQ"/>
+                                    <constraint firstItem="vu5-KB-FEb" firstAttribute="top" secondItem="ROY-tz-pXB" secondAttribute="bottom" constant="2" id="bMa-Y8-QFE"/>
+                                    <constraint firstAttribute="bottom" secondItem="Q9N-bh-ytl" secondAttribute="bottom" id="fbz-41-jwA"/>
+                                    <constraint firstItem="Q9N-bh-ytl" firstAttribute="top" secondItem="vu5-KB-FEb" secondAttribute="bottom" constant="2" id="ljb-No-5XN"/>
+                                    <constraint firstItem="ROY-tz-pXB" firstAttribute="top" secondItem="E0r-Iz-ccy" secondAttribute="top" id="upD-ZB-ndf"/>
+                                    <constraint firstItem="vu5-KB-FEb" firstAttribute="leading" secondItem="E0r-Iz-ccy" secondAttribute="leading" constant="16" id="zAv-dq-ZSo"/>
+                                </constraints>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VF5-m9-8bs">
+                                <rect key="frame" x="16" y="20" width="35" height="35"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="35" id="gg6-EW-nlC"/>
+                                    <constraint firstAttribute="width" constant="35" id="zew-JQ-9W7"/>
+                                </constraints>
+                                <state key="normal" image="left"/>
+                                <connections>
+                                    <action selector="backButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="D42-G7-c29"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="E0r-Iz-ccy" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="DqA-1J-CRY"/>
+                            <constraint firstItem="F9l-na-kcV" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="Npw-Nr-wKg"/>
+                            <constraint firstItem="E0r-Iz-ccy" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="RXK-PU-7T0"/>
+                            <constraint firstItem="F9l-na-kcV" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="Wps-Ge-5KP"/>
+                            <constraint firstAttribute="bottom" secondItem="F9l-na-kcV" secondAttribute="bottom" id="av6-u4-VSq"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="E0r-Iz-ccy" secondAttribute="trailing" id="c90-nP-9yQ"/>
+                            <constraint firstItem="E0r-Iz-ccy" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="d5f-16-sHl"/>
+                            <constraint firstItem="VF5-m9-8bs" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="eSO-eB-3ie"/>
+                            <constraint firstAttribute="trailing" secondItem="F9l-na-kcV" secondAttribute="trailing" id="g4d-bH-2NR"/>
+                            <constraint firstItem="VF5-m9-8bs" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="muI-mc-zse"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                    </view>
+                    <connections>
+                        <outlet property="locationLabel" destination="Q9N-bh-ytl" id="MMZ-ZZ-WlP"/>
+                        <outlet property="temperatureLabel" destination="ROY-tz-pXB" id="09G-OI-aqg"/>
+                        <outlet property="weatherIcon" destination="vu5-KB-FEb" id="ku8-uf-eb0"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1417" y="136"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="Blue-iPhone-Backgrounds" width="1080" height="1920"/>
+        <image name="left" width="32" height="32"/>
+        <image name="xotv_logo" width="207.5" height="55"/>
+    </resources>
+</document>

@@ -1,0 +1,6 @@
+framework module Pods_XOTV_Weather {
+  umbrella header "Pods-XOTV Weather-umbrella.h"
+
+  export *
+  module * { export * }
+}
